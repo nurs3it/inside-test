@@ -3,17 +3,15 @@
     <div class="container medium">
       <WelcomeMessage/>
     </div>
-    <div class="custom-page__chat" id="scrollingBlock">
-      <div class="container medium">
-        <div class="chat-box">
-          <div class="chat-box__messages">
-            <template v-for="(messageBody, index) in messages">
-              <div :key="index">
-                <div class="clear"></div>
-                <Message :message-body="messageBody" />
-              </div>
-            </template>
-          </div>
+    <div class="container custom-page__chat medium" id="scrollingBlock">
+      <div class="chat-box">
+        <div class="chat-box__messages">
+          <template v-for="(messageBody, index) in messages">
+            <div :key="index">
+              <div class="clear"></div>
+              <Message :message-body="messageBody"/>
+            </div>
+          </template>
         </div>
       </div>
     </div>
@@ -91,6 +89,7 @@ export default {
           message: data?.message,
           time: data?.time,
         })
+        this.scrollTOBottom();
       }
     }
   }
@@ -103,7 +102,7 @@ export default {
 }
 
 .custom-page__chat {
-  overflow: scroll;
+  overflow-y: scroll;
   position: relative;
   min-height: 0;
   max-height: 500px;
