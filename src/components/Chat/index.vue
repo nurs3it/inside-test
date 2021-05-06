@@ -8,7 +8,10 @@
         <div class="chat-box">
           <div class="chat-box__messages">
             <template v-for="(messageBody, index) in messages">
-              <Message :message-body="messageBody" :key="index"/>
+              <div :key="index">
+                <div class="clear"></div>
+                <Message :message-body="messageBody" />
+              </div>
             </template>
           </div>
         </div>
